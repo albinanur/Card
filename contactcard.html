@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(document).on('submit','#inputid',function(){
+				var firstName = $('[name="firstname"]').val();
+				var lastName = $('[name="lastname"]').val();
+				var cardDiv = '<div id="card">'+firstName +" "+ lastName+'<h5 id="click">Click here for description</h5>'+'</div>';
+
+				$('#card-holder').append(cardDiv);
+				
+				return false
+			});
+			$(document).on('click','#click',function(){
+				var text = $('[name="text"]').val();
+				$(this).html(text);
+				
+			});
+
+		});
+	</script>
+	<style>
+	body {
+		font-size: 18px;
+	}
+	#main{
+		display: inline-block;
+		width: 800px;
+	}
+	#left{
+		display: inline-block;
+		width: 350px;
+	}
+
+	#inputid{
+		display: block;
+	}
+
+	.input{
+	width: 200px;
+	height: 20px;
+	margin-bottom: 20px;
+	font-size: 15px;
+
+	}
+	.btn{
+		display: block;
+		margin-top: 30px;
+		width: 100px;
+		height: 20px;
+		border-radius: 5px;
+		font-weight: bold;
+	}
+	#form1{
+		vertical-align: top;
+	}
+	#card{
+		border: 1px solid black;
+		width: 250px;
+		height: 200px;
+		float: right;
+		padding: 20px;
+		}
+	#card-holder{
+		display: inline-block;
+		width: 350px;
+		text-align: center;
+		vertical-align: top;
+	
+	}
+
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="left">
+		<form id="inputid">
+		First Name: <input type="text" name="firstname" class="input"></input><br>
+		Last Name: <input type="text" name="lastname" class="input"></input><br>
+		Description: <textarea name="text" id="form1" cols="30" rows="10" placeholder="Enter description :"></textarea>
+		<input type="submit" name="submit" value="Add User" class="btn">
+		</form>
+		</div>
+		<div id="card-holder">
+			<div id="name"></div>
+
+		</div>
+	</div>
+</body>
+</html>
